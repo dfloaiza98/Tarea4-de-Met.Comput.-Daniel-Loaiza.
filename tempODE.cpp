@@ -61,6 +61,23 @@ int main(int argc, char** argv){
     datostrayectoria << "t   vx   vy  x   y" << endl;
     float distancia45=0;
     double x=0,y=0;
+    for(int i=0;i<3000;i++){
+	datostrayectoria <<listatxy[i][0]<<","<<listatxy[i][1]<<","<<listatxy[i][2]<<","<<x<<","<<y<< endl;
+	float xtemp = x;
+	float ytemp=y;
+        x=x+listatxy[i][1]*h;
+	
+        y=y+listatxy[i][2]*h;
+	distancia45 += sqrt(pow((x-xtemp),2) + pow((y-ytemp),2));
+	
+	if(y<0){
+	break;}     
+	
+
+    }
+
+	cout << "La distancia recorrida para teta=45 es: " << distancia45 << " metros " << endl;
+	datostrayectoria.close();
 
 return 0;
 }
