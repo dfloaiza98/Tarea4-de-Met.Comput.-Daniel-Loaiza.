@@ -111,6 +111,32 @@ int main(int argc, char** argv){
   
 
 	}
+	//Las siguientes variables guardan un valor inicial para la mayor distancia y para el angulo. Que despues seran modificadas en el for subsiguiente.
+
+        float mayor=0;
+	int angulomayor=10;
+
+   for(int i=0;i<7;i++){
+
+	if(distancias[i]>mayor){
+	
+		mayor = distancias[i];
+	        angulomayor = (i+1)*10;
+
+	}
+
+	
+	}
+
+	cout << "La distancia mayor recorrida es:" << mayor << " y se da para el angulo de: " << angulomayor<< endl;
+	
+	datosangulos << contador[0] <<"," << contador[1] <<"," << contador[2] <<"," << contador[3] <<"," << contador[4] <<","<< contador[5] <<"," << contador[6] <<"," << contador[7] <<"," << endl;
+
+	datosangulos.close();
+   
+
+	
+	
 
 return 0;
 }
