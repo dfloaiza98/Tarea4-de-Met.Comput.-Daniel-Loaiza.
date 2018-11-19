@@ -12,3 +12,15 @@ datosDx= datos[:,3]
 datosDy= datos[:,4]
 datosVx= datos[:,1]
 datosVy= datos[:,2]
+
+
+##Figura que contiene el movimiento del proyectil para el angulo de 45 grados.
+plt.figure()
+plt.plot(datosDx,datosDy,color="red",label="Angulo = 45 grados")
+plt.title("Movimiento del proyectil")
+plt.ylabel("Posicion en y[m]")
+plt.xlabel("Posicion en x[m]")
+plt.legend()
+plt.show()
+plt.savefig("Movimientoparaangulode45grados.pdf")
+
