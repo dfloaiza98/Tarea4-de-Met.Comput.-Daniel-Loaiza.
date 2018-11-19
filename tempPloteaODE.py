@@ -24,3 +24,23 @@ plt.legend()
 plt.show()
 plt.savefig("Movimientoparaangulode45grados.pdf")
 
+##Variable para guardar los valores para distintos angulos  y luego graficar.
+datosangulos = np.genfromtxt("datosangulos.txt",dtype=None,delimiter=",",skip_footer=1)
+contadores= np.genfromtxt("datosangulos.txt",dtype=None,delimiter=",",skip_header=len(datosangulos))[0:-1]
+
+##Las siguientes listas vacias seran usadas para guardar los valores de distancia en x y distancia en y asociados a los distintos valores de teta.
+datosDx10= []
+datosDy10= []
+datosDx20= []
+datosDy20= []
+datosDx30= []
+datosDy30= []
+datosDx40= []
+datosDy40= []
+datosDx50= []
+datosDy50= []
+datosDx60= []
+datosDy60= []
+datosDx70= []
+datosDy70= []
+
