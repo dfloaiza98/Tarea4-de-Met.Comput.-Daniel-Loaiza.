@@ -54,8 +54,13 @@ void runge_kutta1(float teta){
     }
     
 }
-int main(){
-
+int main(int argc, char** argv){
+    runge_kutta1(45);
+    ofstream datostrayectoria;
+    datostrayectoria.open("datostrayectoria.txt");
+    datostrayectoria << "t   vx   vy  x   y" << endl;
+    float distancia45=0;
+    double x=0,y=0;
 
 return 0;
 }
