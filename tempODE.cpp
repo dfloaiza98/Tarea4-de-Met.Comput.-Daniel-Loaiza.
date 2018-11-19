@@ -78,6 +78,39 @@ int main(int argc, char** argv){
 
 	cout << "La distancia recorrida para teta=45 es: " << distancia45 << " metros " << endl;
 	datostrayectoria.close();
+//Aqui se abre un archivo.txt que tendra los datos para distintos valores de teta.
+    ofstream datosangulos;
+    datosangulos.open("datosangulos.txt");
+ 
+    int contador[7];
+    float distancias[7];
+    for(int i=0;i<7;i++){
+	datosangulos << "EL, angulo,  es,  :," << (i+1)*10 << endl; 
+	runge_kutta1((i+1)*10);
+	double x=0,y=0;
+	float distancia=0;
+    	for(int k=0;k<3000;k++){
+	datosangulos <<listatxy[k][0]<<","<<listatxy[k][1]<<","<<listatxy[k][2]<<","<<x<<","<<y<< endl;
+	float xtemp = x;
+	float ytemp=y;
+        x=x+listatxy[k][1]*h;
+	
+	
+        y=y+listatxy[k][2]*h;
+
+	distancia += sqrt(pow((x-xtemp),2) + pow((y-ytemp),2));
+
+
+	
+	if(y<0){
+	contador[i] = k;
+	distancias[i] = distancia;
+	break;}     
+    }
+    
+  
+
+	}
 
 return 0;
 }
