@@ -36,6 +36,24 @@ double iter(double t, double ux,double uy,bool xx){
     if(xx) return (ux+h/6*(kx+2*k2x+2*k3x+k4x));
     return (uy+h/6*(ky+2*k2y+2*k3y+k4y));
 }
+
+
+//Esta lista guardara las coordenadas x y en y.
+double listatxy[3001][3];
+//Esta es la funcion que calculara 3000 coordenadas con la funcion que itera haciendo un promedio ponderado de las derivadas.
+void runge_kutta1(float teta){
+    int n=3000;
+    
+    listatxy[0][0]=0;
+    listatxy[0][1]=v*cos(teta*(M_PI/180));
+    listatxy[0][2]=v*sin(teta*(M_PI/180));
+    for(int i=1;i<n;i++){
+        listatxy[i][0]=i*h;
+        listatxy[i][1]=iter((i-1)*h,listatxy[i-1][1], listatxy[i-1][2],true);
+        listatxy[i][2]=iter((i-1)*h,listatxy[i-1][1], listatxy[i-1][2],false);
+    }
+    
+}
 int main(){
 
 
